@@ -1,22 +1,27 @@
+---
+import Header from '@/layouts/Header.astro'
+import Footer from '@/layouts/Footer.astro'
+import '@/assets/styles/index.scss'
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="stylesheet" href="/assets/styles/normalize.css">
+		<link rel="stylesheet" href="/assets/styles/fonts.css">
+		<title>Врекламе</title>
 	</head>
 	<body>
-		<slot />
+		<div class="wrapper">
+			<Header />
+
+			<main>
+				<slot />
+			</main>
+
+			<Footer />
+		</div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

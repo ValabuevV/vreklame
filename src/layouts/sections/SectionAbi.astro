@@ -1,0 +1,84 @@
+---
+const faq = [
+  {
+    q: 'Сколько баллов нужно?',
+    a: 'Для поступления необходимо набрать минимальное количество баллов по каждому из вступительных испытаний. Точную информацию о проходных баллах за прошлый год можно узнать на официальном сайте СГУ в разделе приема <a href="https://www.sgu.ru/priyom-2025-informaciya-dlya-abiturientov" target="_blank" class="link-base">https://www.sgu.ru/priyom-2025-informaciya-dlya-abiturientov</a>'
+  },
+  {
+    q: 'Как к вам попасть?',
+    a: 'Поступление осуществляется на конкурсной основе по результатам ЕГЭ и дополнительных вступительных испытаний. Можно поступить как на бюджетное, так и на платное отделение. Есть возможность учиться очно или очно-заочно.'
+  },
+  {
+    q: 'Какие экзамены сдавать?',
+    a: 'Для поступления нужно сдать: <br>- Русский язык <br>- Обществознание <br>- Третий предмет на выбор (английский язык или история)'
+  },
+  {
+    q: 'Сколько бюджетных мест?',
+    a: 'Количество бюджетных мест ежегодно утверждается приказом и может варьироваться. Актуальную информацию можно уточнить в Центральной приемной комиссии СГУ: <a href="https://www.sgu.ru/priyom-2025-informaciya-dlya-abiturientov/kolichestvo-mest-priyoma-2025" target="_blank" class="link-base">https://www.sgu.ru/priyom-2025-informaciya-dlya-abiturientov/kolichestvo-mest-priyoma-2025</a>'
+  },
+  {
+    q: 'Есть подготовительные курсы?',
+    a: 'Да, при СГУ действуют подготовительные курсы, где можно подготовиться к поступлению. Курсы ведут преподаватели университета, которые помогут разобраться в сложных темах и подготовиться к ЕГЭ.'
+  },
+  {
+    q: 'Что будет после учебы?',
+    a: 'Выпускники могут работать: <br>- В PR-отделах компаний <br>- В рекламных агентствах <br>- В СМИ <br>- В государственных структурах <br>- В некоммерческих организациях'
+  },
+  {
+    q: 'Какие перспективы у специальности?',
+    a: 'Специальность открывает широкие возможности для карьеры в сфере коммуникаций. Выпускники могут стать: <br>- PR-менеджерами <br>- Копирайтерами <br>- SMM-специалистами <br>- Event-менеджерами <br>- Бренд-менеджерами'
+  },
+  {
+    q: 'Как проходит обучение?',
+    a: 'Обучение включает: <br>- Теоретические занятия <br>- Практические занятия <br>- Реальные проекты с компаниями <br>- Производственную практику <br>- Творческие мастерские'
+  },
+  {
+    q: 'Какие преподаватели?',
+    a: 'На кафедре работают: <br>- Опытные преподаватели <br>- Практикующие специалисты <br>- Руководители PR-агентств <br>- Журналисты <br>- Маркетологи'
+  },
+  {
+    q: 'Есть практика?',
+    a: 'Да, студенты проходят практику в: <br>- Крупных коммуникационных агентствах <br>- СМИ <br>- Государственных структурах <br>- Бизнес-компаниях <br>- НКО'
+  },
+]
+---
+
+<section>
+  <div class="container relative">
+    <img src="/assets/images/fig-1.svg" style="position: absolute;top: 340px; left:-140px" alt="">
+    <img src="/assets/images/fig-2.svg" style="position: absolute;top: 1700px; right:-140px" alt="">
+    <h1 class="page-headline">Абитуриенту</h1>
+  
+    <div class="section-abi">
+      {faq.map(item => (
+        <div class="abi-item">
+          <div class="abi-item__q">{item.q}</div>
+          <div class="abi-item__a" set:html={item.a}></div>
+        </div>
+      ))}
+    </div>
+
+    <div>
+      <form action="/form.php" method="post" class="form-q">
+        <h3 class="form-q__headline">Остались вопросы?</h3>
+
+        <div class="form-q__wrap">
+          <div class="form-q__row">
+            <input type="text" name="name" id="name" placeholder="Ваше имя" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-q__row">
+            <textarea name="question" id="question" placeholder="Введите вопрос" rows="6" required></textarea>
+            <input type="hidden" name="age" id="age" value="">
+          </div>
+        </div>
+
+        <button class="button" type="submit">
+          Отправить
+        </button>
+      </form>
+    </div>
+
+    
+  </div>
+</section>
