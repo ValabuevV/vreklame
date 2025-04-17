@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Очистка данных
-    $name = htmlspecialchars(trim($_POST['name']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $question = htmlspecialchars(trim($_POST['question']));
+    $name = htmlspecialchars(trim($_POST['name']), ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+    $question = htmlspecialchars(trim($_POST['question']), ENT_QUOTES, 'UTF-8');
 
     // Проверка обязательных полей
     if (empty($name) || empty($email) || empty($question)) {
@@ -31,17 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Отправка письма
-    $to = 'send@valabuev.ru'; // Замените на свою почту
+    $to = 'pokrovskayamariya61@gmail.com'; // Замените на свою почту
     $subject = 'Вопрос с сайта';
-    //$message = "Имя: $name\nПочта: $email\nВопрос:\n$question";
-    $message = "test";
-    $headers = "From: $email";
+    $message = "Имя: $name\nПочта: $email\nВопрос:\n$question";
+    $headers = "From: $email\r\n";
+    $headers .= "Content-type: text/plain; charset=utf-8\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
         echo 'Сообщение отправлено! <a href="/">Вернуться</a>';
     } else {
-        print_r(error_get_last(), true);
         echo 'Ошибка при отправке! <a href="/">Вернуться</a>';
+        print_r(error_get_last(), true);
     }
 } else {
     die('Неверный метод запроса!');
