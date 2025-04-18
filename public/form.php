@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Отправка письма
-    $to = 'pokrovskayamariya61@gmail.com, send@valabuev.ru'; // Замените на свою почту
+    $to = 'pokrovskayamariya61@gmail.com'; // Замените на свою почту
     $subject = 'Вопрос с сайта';
     $message = "Имя: $name\nПочта: $email\nВопрос:\n$question";
     $headers = "From: $email\r\n";
