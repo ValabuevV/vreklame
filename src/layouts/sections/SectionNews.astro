@@ -1,0 +1,58 @@
+---
+
+const news = [
+  {
+    image: '/assets/images/news-week-1.jpg',
+    date: '15.04.25',
+    href: 'https://vk.com/vreklame_ssu?from=groups&w=wall-205501309_1723',
+    title: 'СИРОПП 2025',
+    text: 'Рады сообщить, что две команды СГУ в составе студентов-рекламистов 3 курса прошли в финал конкурса проектов в рамках фестиваля СИРОПП (г. Владимир) в разных номинациях: лучший студенческий проект коммерческой рекламы и лучший студенческий PR-проект. <br />25-27 апреля они защитят свои разработки во Владимирском государственном университете.'
+  },
+  {
+    image: '/assets/images/news-week-2.jpg',
+    date: '11.04.25',
+    href: 'https://vk.com/vreklame_ssu?from=groups&w=wall-205501309_1722',
+    title: 'Выставка "Наш Гагарин"',
+    text: 'Студентки первого курса направления "Рекламы и связи с общественностью" Алина Алдаева и Ева Попова из тех, кто не ждёт особого приглашения. Накануне Дня космонавтики они посетили документальную выставку "Наш Гагарин" в музее-усадьбе им. Н.Г. Чернышевского. '
+  },
+  {
+    image: '/assets/images/news-week-3.jpg',
+    date: '08.04.25',
+    href: 'https://vk.com/vreklame_ssu?from=groups&w=wall-205501309_1720',
+    title: 'Фестиваль кино"Гагарин.doc"',
+    text: '8 апреля студенты 2 курса направления "Реклама и связи с общественностью" посетили Торжественное открытие IX Международного фестиваля кино, науки и современного искусства "Гагарин.doc". <br>На церемонии студентам посчастливилось встретиться с ветераном Байконура, имевшем непосредственное знакомство с Ю.А. Гагариным.'
+  },
+  {
+    image: '/assets/images/news-week-4.jpg',
+    date: '05.04.25',
+    href: 'https://vk.com/vreklame_ssu?from=groups&w=wall-205501309_1716',
+    title: 'Тотальный Диктант 2025',
+    text: 'Диктант, который в одном часовом поясе одновременно пишут люди из 12 стран, производит магический эффект! <br>Студенты 1, 2, 3 курсов направления "Реклама и связи с общественностью" и доценты кафедры социальных коммуникаций Мария Васильевна Калашникова и Эльмира Феясовна Тугушева приняли участие в международной акции "Тотальный диктант".'
+  },
+]
+
+---
+<section>
+  <div class="container">
+    <h1 class="page-headline">Новости за неделю</h1>
+    <div class="section-page-news">
+      {news.map((item) => (
+        <div class="news-single">
+          <div class="news-single__image-container">
+            <img class="news-single__img" src={item.image} alt="" />
+            <div class="news-single__date">{item.date}</div>
+          </div>
+
+          <div class="news-single__wrap">
+            <div class="news-single__title">{item.title}</div>
+            <div class="news-single__text" set:html={item.text}></div>
+            <a href={item.href} class="button" target="_blank">
+              ПОДРОБНЕЕ
+              <img src="/assets/images/arrow-right.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
